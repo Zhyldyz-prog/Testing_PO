@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список элементов</title>
+</head>
+<body>
+    <h1>Список элементов CRUD</h1>
+    <a href="{% url 'item_create' %}">+ Создать новый элемент</a>
+    <hr>
+    <ul>
+        {% for item in items %}
+            <li>
+                <strong>{{ item.title }}</strong> — {{ item.price }} руб.
+                [<a href="{% url 'item_detail' item.pk %}">Просмотр</a>]
+                [<a href="{% url 'item_update' item.pk %}">Редактировать</a>]
+                [<a href="{% url 'item_delete' item.pk %}">Удалить</a>]
+            </li>
+        {% empty %}
+            <li>Элементов пока нет.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

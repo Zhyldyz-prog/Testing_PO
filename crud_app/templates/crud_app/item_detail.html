@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ item.title }}</title>
+</head>
+<body>
+    <h1>{{ item.title }}</h1>
+    <p><strong>Описание:</strong> {{ item.description }}</p>
+    <p><strong>Цена:</strong> {{ item.price }} руб.</p>
+    <p><strong>Дата создания:</strong> {{ item.created_at }}</p>
+    <hr>
+    <a href="{% url 'item_update' item.pk %}">Редактировать</a> |
+    <a href="{% url 'item_delete' item.pk %}">Удалить</a> |
+    <a href="{% url 'item_list' %}">Назад к списку</a>
+</body>
+</html>
