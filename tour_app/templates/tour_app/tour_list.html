@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Конные туры</title>
+</head>
+<body>
+    <h1>Список конных туров</h1>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <ul>
+        {% for tour in tours %}
+            <li>
+                <strong>{{ tour.title }}</strong> — {{ tour.price }} сом
+                <p>{{ tour.description }}</p>
+
+                <!-- Форма бронирования -->
+                <form action="{% url 'create_booking' tour.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="date" name="date" required>
+                    <input type="time" name="time" required>
+                    <button type="submit">Забронировать</button>
+                </form>
+            </li>
+        {% empty %}
+            <li>Туров пока нет. Добавьте их через админку!</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

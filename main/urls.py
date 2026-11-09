@@ -6,4 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
     path('crud/', include('crud_app.urls')),
+    path('', include('tour_app.urls')),
 ]
