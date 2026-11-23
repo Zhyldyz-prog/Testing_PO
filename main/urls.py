@@ -7,4 +7,6 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('crud/', include('crud_app.urls')),
     path('', include('tour_app.urls')),
+    path('', include('users.urls')),
+    path('captcha/', include('captcha.urls')),
 ]

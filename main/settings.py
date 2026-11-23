@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'blog',
     'crud_app',
     'tour_app',
+    'users',
+    'captcha',
 ]
 
 MIDDLEWARE = [
